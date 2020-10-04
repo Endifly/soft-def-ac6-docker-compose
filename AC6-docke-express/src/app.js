@@ -5,7 +5,7 @@ var mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 const Schema = mongoose.Schema
 const todoSchema = new Schema(TODO_SCHEMA)
-var mongo_uri = "mongodb://admin:secure@mongo:27017";
+var mongo_uri = "mongodb://@mongo:27017";
 console.log("mongo_uri",mongo_uri)
 
 
