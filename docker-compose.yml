@@ -1,0 +1,23 @@
+version: '3.1'
+services :
+    mongo :
+        image : mongo
+        restart : always
+        volumes :
+            - "./datamongo:/data/db"
+        ports :
+            - 27017:27017
+        environment :
+            - MONGO_INITDB_ROOT_USERNAME:admin
+            - MONGO_INITDB_ROOT_PASSWORD:secure
+    web :
+        build : ./AC6-docke-express
+        restart : always
+        ports :
+            - 80:8888
+        volumes :
+            - ./app:/nodeapp
+        links:
+            - mongo
+        depends_on:
+            - "mongo"
